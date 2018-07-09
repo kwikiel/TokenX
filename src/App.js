@@ -11,10 +11,10 @@ class App extends Component {
   constructor () {
     super();
     this.state = {
-      asset: "kovan",
-      network: "kovan",
-      recipient: "0x6be450972b30891b16c8588dcbc10c8c2aef04da",
-      channel: 'test',
+      asset: "0xb7fc08177bcba924255132f361084d7994eafcf0",
+      network: "ethereum",
+      recipient: "0x2577a8539cb2194acd72f035dbb691ce5f406d3f",
+      channel: 'https://kwikiel.github.io/TokenX/',
       items: []
     };
     this.fetch();

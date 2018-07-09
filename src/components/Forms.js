@@ -38,12 +38,12 @@ export class FormSingle extends Component {
           type:["about"],
           claim:{
             target: this.state.url,
-            about: "test"
+            about: "https://kwikiel.github.io/TokenX/"
           },
           credits: [
             {
               type: "interface", 
-              value: "https://userfeeds.github.io/examples/examples/influencers/"
+              value: "https://kwikiel.github.io/TokenX/"
             }
           ]
         }}
@@ -85,12 +85,12 @@ export class FormMultiple extends Component {
         type:["about"],
         claim:{
           target: url,
-          about: "test"
+          about: "0x2577a8539cb2194acd72f035dbb691ce5f406d3f"
         },
         credits: [
           {
-            type: "interface", 
-            value: "https://userfeeds.github.io/examples/examples/influencers/"
+            type: "interface",
+            value: "0xb7fc08177bcba924255132f361084d7994eafcf0"
           }
         ]
       });
