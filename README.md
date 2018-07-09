@@ -1,9 +1,3 @@
-## Crypto Influencers list ranked by token payments
+## Example Simple Interfaces
 
-This interface shows urls to crypto influencers pages ranked by payments using ERC20 token
-
-To start:
-
-npm install
-
-yarn start
+Interfaces showing minimal functionality for given task. You can use them as references while building larger projects.

@@ -2,83 +2,45 @@ import React, { Component } from 'react';
 
 import Navbar from './components/Navbar';
 import Header from './components/Header';
-import Item from './components/Item';
-import {FormSingle ,FormMultiple} from './components/Forms';
+import Card from './components/Card';
+import Footer from './components/Footer';
 
+import examples from './examples.json';
 import './App.css';
 
+examples.sort(function(a, b) {
+  const titleA = a.title.toUpperCase(); // ignore upper and lowercase
+  const titleB = b.title.toUpperCase(); // ignore upper and lowercase
+
+  if (titleA < titleB) {
+    return -1;
+  }
+
+  if (titleA > titleB) {
+    return 1;
+  }
+
+  return 0;
+});
+
 class App extends Component {
-  constructor () {
-    super();
-    this.state = {
-      asset: "kovan",
-      network: "kovan",
-      recipient: "0x6be450972b30891b16c8588dcbc10c8c2aef04da",
-      channel: 'test',
-      items: []
-    };
-    this.fetch();
-  }
-
-  async fetch () {
-    const API = `https://api.userfeeds.io/ranking/`;
-    const response = await fetch(API, {
-      method: 'POST',
-      headers: {
-          "Content-Type": "application/json; charset=utf-8",
-      },
-      body: JSON.stringify({
-        "flow":[
-          {
-            "algorithm":"experimental_channel_feed",
-            "params":{
-              "id":this.state.channel
-            }
-          },
-          /*{
-            "algorithm":"filter_whitelist",
-            "params":{
-              "whitelist":"0x2577a8539cb2194acd72f035dbb691ce5f406d3f"
-            }
-          },*/
-          {
-            "algorithm":"experimental_value_transfer",
-            "params":{
-              "asset": this.state.asset,
-              "receiver": this.state.recipient
-            }
-          }
-        ]
-      })
-    });
-    const data = await response.json();
-    const items = data.items.sort((a,b) => b.score - a.score);
-    this.setState({items});
-  }
-
   render() {
-
     return (
-      <div className="App">
+      <div className="App is-examples">
         <Navbar />
-        <main>
-          <Header title="Influencers" />
-          <section className="items">
-            <div className="container">
-              <div>
-                <span>Add single URL</span>
-                <FormSingle/>
-                <hr/>
-                <span>Add multiple URLs</span>
-                <FormMultiple/>
-              </div>
-              <hr/>
-              {this.state.items.map(item =>
-                <Item item={item} asset={this.state.asset} network={this.state.network} recipient={this.state.recipient}/>
-              )}
+        <main className="is-examples">
+          <Header title="Examples" subtitle="A collection of example interfaces" />
+          <div className="container">
+            <div className="columns is-multiline">
+              {examples.map(app => (
+                <div className={`column is-one-third is-${app.id}`}>
+                  <Card app={app} />
+                </div>
+              ))}
             </div>
-          </section>
+          </div>
         </main>
+        <Footer />
       </div>
     );
   }
