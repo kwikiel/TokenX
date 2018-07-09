@@ -39,7 +39,7 @@ class Item extends Component {
             claim={{claim:{
               target: this.props.item.id,
             }}}
-            //assetAddress={this.props.asset}
+            assetAddress={this.props.asset}
             network={this.props.network}
             recepientAddress={this.props.recipient}
             value={this.state.boost[this.props.item.id]}
