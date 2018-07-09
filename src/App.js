@@ -44,7 +44,7 @@ class App extends Component {
           {
             "algorithm":"experimental_value_transfer",
             "params":{
-              "asset": this.state.asset,
+              "asset": `${this.state.network}:${this.state.asset}`,
               "receiver": this.state.recipient
             }
           }
