@@ -6,7 +6,9 @@ class Header extends Component {
       <header className="header">
         <div className="container">
           <h1 className="title">{this.props.title}</h1>
-          <p className="subtitle">{this.props.subtitle}</p>
+          {this.props.subtitle &&
+            <p className="subtitle">{this.props.subtitle}</p>
+          }
         </div>
       </header>
     );
