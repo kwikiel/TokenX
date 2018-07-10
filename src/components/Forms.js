@@ -76,7 +76,7 @@ export class FormMultiple extends Component {
   }
 
   async handleSubmit(event) {
-    let urls = this.state.urls.split(' ');
+    let urls = this.state.urls.match(/\S+/g);
 
     const web3 = new Web3(window.web3.currentProvider);
     
