@@ -50,6 +50,7 @@ class Item extends Component {
             <Blockies seed={this.props.item.author} />
           </figure>
           <div>
+          {this.props.item.author}
             <code>{this.state.token}</code>
             <small>{this.props.item.score/100}</small>
           </div>
